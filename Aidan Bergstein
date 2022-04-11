@@ -1,0 +1,16 @@
+For this assignment, I worked independently. My answers are below.
+
+> av <- read.csv("https://raw.githubusercontent.com/fivethirtyeight/data/master/avengers/avengers.csv", stringsAsFactors = FALSE)
+> av
+
+Get the data into a format where the five columns for Death[1-5] are replaced by two columnes: Time, and Death. Time should be a number between 1 and 5 (look into the function parse_number); Death is a categorical variables with values “yes”, “no” and "". Call the result deaths.
+
+> av$Deaths <- paste(av$Death1,av$Death2,av$Death3,av$Death4,av$Death5)
+> av$Returns <- paste(av$Return1,av$Return2,av$Return3,av$Return4,av$Return5)
+
+There’s a 2-in-3 chance that a member of the Avengers returned from their first stint in the afterlife, but only a 50 percent chance they recovered from a second or third death.
+
+> proportions <- table(av$Returns)/length(av$Returns)
+> percentages <- proportions*100
+'table" num [1:7(1d)] 0.6012
+Upon first death, 60.12% of Avengers died from their first stint in the afterlife which is pretty close but not exactly 2/3 of the members of the avengers, therefore this statement isn't exactly true but is close enough for it to be pretty accuarte. 
